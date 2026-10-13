@@ -8,7 +8,8 @@
     "userInterfaceStyle": "light",
     "backgroundColor": "#F6F1E6",
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "com.recozinhe.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -16,7 +17,8 @@
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "package": "com.recozinhe.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -25,11 +27,15 @@
       "expo-font",
       [
         "expo-camera",
-        { "cameraPermission": "O ReCozinhe usa a câmera para fotografar alimentos que seriam descartados." }
+        {
+          "cameraPermission": "O ReCozinhe usa a câmera para fotografar alimentos que seriam descartados."
+        }
       ],
       [
         "expo-image-picker",
-        { "photosPermission": "O ReCozinhe acessa suas fotos para você escolher a imagem de um alimento." }
+        {
+          "photosPermission": "O ReCozinhe acessa suas fotos para você escolher a imagem de um alimento."
+        }
       ]
     ]
   }

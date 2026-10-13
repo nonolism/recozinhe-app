@@ -11,8 +11,12 @@ import Constants from 'expo-constants';
  *
  * Se não funcionar (por exemplo, usando "--tunnel" ou backend em outro PC),
  * escreva o endereço aqui, ex.: 'http://192.168.0.10:8000/api'
+ *
+ * Com o backend hospedado no PythonAnywhere, use o endereço de lá:
+ *   'https://SEUUSUARIO.pythonanywhere.com/api'
+ * (obrigatório para gerar o APK: o app instalado não tem o computador por perto)
  */
-const MANUAL_API_URL = 'http://192.168.3.240:8000/api';
+const MANUAL_API_URL = null;
 
 function detectApiUrl() {
   // hostUri vem como "192.168.0.10:8081" (IP do computador : porta do Expo)

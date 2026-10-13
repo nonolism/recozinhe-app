@@ -66,3 +66,23 @@ src/screens/            uma tela por arquivo
   e conecte o computador nele.
 - **Testar no navegador**: `npx expo start --web` abre o app no computador (a câmera não funciona
   no navegador, mas as outras telas sim).
+
+## Usar sem o computador
+
+Com o backend hospedado no PythonAnywhere (veja o README do backend) e o endereço dele em `src/config.js`:
+
+**Android: gerar um APK (gratuito).** O app vira um aplicativo instalado, sem Expo Go e sem computador.
+
+```bash
+npm install -g eas-cli
+eas login                                  # conta gratuita em https://expo.dev
+eas build -p android --profile preview     # na primeira vez, aceite criar o projeto
+```
+
+O build roda na nuvem do Expo (na fila gratuita pode levar de alguns minutos a mais de meia hora).
+No fim aparece um link: abra no celular, baixe o `.apk` e instale (o Android vai pedir para permitir
+"instalar apps desconhecidos").
+
+**iPhone:** instalar um app fora da App Store exige a conta paga de desenvolvedor da Apple. Sem ela,
+continue usando o Expo Go com o computador: `npx expo start --tunnel` funciona mesmo com o celular em
+outra rede (o backend no PythonAnywhere continua acessível de qualquer lugar).
