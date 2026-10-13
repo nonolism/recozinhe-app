@@ -1,17 +1,18 @@
 {
   "expo": {
-    "name": "recozinhe-app",
+    "name": "ReCozinhe",
     "slug": "recozinhe-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "backgroundColor": "#F6F1E6",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#F6F1E6",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -19,6 +20,17 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-camera",
+        { "cameraPermission": "O ReCozinhe usa a câmera para fotografar alimentos que seriam descartados." }
+      ],
+      [
+        "expo-image-picker",
+        { "photosPermission": "O ReCozinhe acessa suas fotos para você escolher a imagem de um alimento." }
+      ]
+    ]
   }
 }
