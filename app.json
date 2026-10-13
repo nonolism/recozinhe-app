@@ -37,6 +37,12 @@
           "photosPermission": "O ReCozinhe acessa suas fotos para você escolher a imagem de um alimento."
         }
       ]
-    ]
+    ],
+    "owner": "ruan_vitor_moreno",
+    "extra": {
+      "eas": {
+        "projectId": "00f1d213-6727-4ca0-907e-4a666dbbde13"
+      }
+    }
   }
 }

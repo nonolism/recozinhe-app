@@ -16,7 +16,7 @@ import Constants from 'expo-constants';
  *   'https://SEUUSUARIO.pythonanywhere.com/api'
  * (obrigatório para gerar o APK: o app instalado não tem o computador por perto)
  */
-const MANUAL_API_URL = null;
+const MANUAL_API_URL = 'https://ruanvitormoreno.pythonanywhere.com/api';
 
 function detectApiUrl() {
   // hostUri vem como "192.168.0.10:8081" (IP do computador : porta do Expo)
