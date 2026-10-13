@@ -12,7 +12,7 @@ import Constants from 'expo-constants';
  * Se não funcionar (por exemplo, usando "--tunnel" ou backend em outro PC),
  * escreva o endereço aqui, ex.: 'http://192.168.0.10:8000/api'
  */
-const MANUAL_API_URL = null;
+const MANUAL_API_URL = 'http://192.168.3.240:8000/api';
 
 function detectApiUrl() {
   // hostUri vem como "192.168.0.10:8081" (IP do computador : porta do Expo)
