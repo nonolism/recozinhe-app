@@ -2,6 +2,9 @@
  * Todas as chamadas ao backend ficam aqui.
  * Cada função corresponde a um endpoint do Django (ver README do backend).
  */
+import { File } from 'expo-file-system';
+import { Platform } from 'react-native';
+
 import { API_URL } from './config';
 
 let token = null;
@@ -35,7 +38,8 @@ async function request(path, { method = 'GET', body, form } = {}) {
     throw new Error(
       `Não foi possível conectar ao servidor (${API_URL}). ` +
         'Confira se o backend está rodando com "runserver 0.0.0.0:8000" ' +
-        'e se o celular está na mesma rede Wi-Fi do computador.'
+        'e se o celular está na mesma rede Wi-Fi do computador.\n\n' +
+        `Detalhe: ${error.message}`
     );
   }
 
@@ -86,9 +90,17 @@ export const register = (data) => request('/register/', { method: 'POST', body: 
 export const getProfile = () => request('/profile/');
 
 // ---------------- Fotos ----------------
-export function uploadPhoto(uri, source) {
+export async function uploadPhoto(uri, source) {
   const form = new FormData();
-  form.append('image', { uri, name: 'foto.jpg', type: 'image/jpeg' });
+  if (Platform.OS === 'web') {
+    // No navegador, a foto vira um Blob
+    const blob = await (await fetch(uri)).blob();
+    form.append('image', blob, 'foto.jpg');
+  } else {
+    // No celular, o Expo 57 envia arquivos como File (do expo-file-system).
+    // O formato antigo { uri, name, type } não funciona mais.
+    form.append('image', new File(uri));
+  }
   form.append('source', source); // 'camera' ou 'galeria'
   return request('/photos/', { method: 'POST', form });
 }
